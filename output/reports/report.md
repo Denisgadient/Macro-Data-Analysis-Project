@@ -1,17 +1,10 @@
-import pandas as pd
-import os
-
-def generate_report():
-    df = pd.read_csv('output/processed_impacts.csv')
-    
-    # We will grab the beta from our summary
-    report_content = f"""# Institutional Macro Impact Report (v2.0)
+# Institutional Macro Impact Report (v2.0)
 
 ## Executive Summary
 This study analyzes the S&P 500 sensitivity to US CPI and NFP surprises using an institutional-grade event study framework. 
 
-- **Sample Size (N):** {len(df)}
-- **Event Types:** {', '.join(df['event_type'].unique())}
+- **Sample Size (N):** 15
+- **Event Types:** CPI, NFP
 - **Primary Window:** T-1 to T+1 (Relative to Close)
 
 ## Methodology (Institutional Spec)
@@ -27,13 +20,3 @@ This study analyzes the S&P 500 sensitivity to US CPI and NFP surprises using an
 ## Limitations
 - **Proxy Data:** Analysis uses daily close data; intraday high-frequency data would provide more granular reaction metrics.
 - **Sample Constraints:** 2024 represents a specific interest rate regime; results may differ in low-rate environments.
-"""
-    
-    os.makedirs('output/reports', exist_ok=True)
-    with open('output/reports/report.md', 'w') as f:
-        f.write(report_content)
-    
-    print("\nSuccess: Professional Markdown report generated in output/reports/report.md")
-
-if __name__ == "__main__":
-    generate_report()
