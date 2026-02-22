@@ -12,7 +12,7 @@ This analysis quantifies the sensitivity of the S&P 500 (^GSPC) to US Macroecono
 | **P-Value** | 0.2538 | Statistical significance (Target < 0.05) |
 
 ## Visual Analysis
-![Event Sensitivity Plot](plots/event_sensitivity.png)
+![Event Sensitivity Plot](../plots/event_sensitivity.png)
 
 ## Methodology
 - **Surprise Calculation:** (Actual - Consensus) / Historical Std Dev.
